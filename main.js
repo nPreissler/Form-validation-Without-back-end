@@ -42,7 +42,7 @@ function readForm() {
     }
 
     if (password.value === confirmedPassword.value) {
-        answer.innerHTML = 'Your registration is complete, sir' + name.value
+        answer.innerHTML = 'Your registration is complete, sir ' + name.value
         setTimeout(function () {
             name.value = ''
             mail.value = ''
