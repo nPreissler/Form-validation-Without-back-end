@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="icon"
+        href="https://icons.veryicon.com/png/o/education-technology/alibaba-big-data-oneui/form-completion-1.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation (without back-end)</title>
+</head>
+
+<body>
+
+    <form>
+        <fieldset>
+            <legend>Register Form</legend>
+            <label for="nome">Name: <span id="nameSpan">*</span></label>
+            <input type="text" id="name" maxlength="40" required>
+
+            <label for="email">E-mail: <span id="mailSpan">*</span></label>
+            <input type="email" id="mail" maxlength="45" required>
+
+            <label for="numero">Number: <span id="numberSpan">*</span></label>
+            <input type="number" id="number" maxlength="12" required>
+
+            <label for="senha">Passoword: <span id="passwordSpan">*</span></label>
+            <input type="password" id="password" maxlength="30" minlength="6">
+
+            <label for="senhaconfirmada">Confirm your Passoword: <span id="confirmPasswordSpan">*</span></label>
+            <input type="password" id="confirmedPassword" maxlength="30" minlength="6">
+
+            <br>
+
+            <input class="selected" type="button" value="Register" onclick="readForm()">
+        </fieldset>
+    </form>
+
+    <div class="answer">
+        <p id="answer"></p>
+    </div>
+
+</body>
+
+</html>
