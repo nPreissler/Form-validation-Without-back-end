@@ -14,30 +14,34 @@ function readForm() {
     var passwordError = document.getElementById('passwordSpan');
     var confirmPasswordError = document.getElementById('confirmPasswordSpan');
     // .............................................................. //
-    if (name.value === '' || mail.value === '' || number.value === '' || password.value === '' || confirmedPassword.value === '') {
-        answer.innerHTML = 'Please fill in all fields.';
-        if (name.value === '') { nameError.style.color = 'red' }
-        if (mail.value === '') { mailError.style.color = 'red' }
-        if (number.value === '') { numError.style.color = 'red' }
-        if (password.value === '') { passwordError.style.color = 'red' }
-        if (confirmedPassword.value === '') { confirmPasswordError.style.color = 'red' }
-        setTimeout(function () {
-            answer.innerHTML = ''
-            nameError.style.color = ''
-            mailError.style.color = ''
-            numError.style.color = ''
-            passwordError.style.color = ''
-            confirmPasswordError.style.color = '';
-        }, 2000)
-        return;
+    const empty = {
+        errorOnName: function () { return name.value === '' ? nameError.style.color = 'red' : false },
+        errorOnMail: function () { return mail.value === '' ? mailError.style.color = 'red' : false },
+        errorOnNum: function () { return number.value === '' ? numError.style.color = 'red' : false },
+        errorOnPassword: function () { return password.value === '' ? passwordError.style.color = 'red' : false },
+        errorOnConfPassword: function () { return confirmedPassword.value === '' ? confirmPasswordError.style.color = 'red' : false }
     }
+    empty['errorOnName']() 
+    empty['errorOnMail']()
+    empty['errorOnNum']()
+    empty['errorOnPassword']()
+    empty['errorOnConfPassword']()
+    setTimeout(function () {
+        answer.innerHTML = 'Please fill in all fields'
+        nameError.style.color = ''
+        mailError.style.color = ''
+        numError.style.color = ''
+        passwordError.style.color = ''
+        confirmPasswordError.style.color = '';
+    }, 2000)
+
 
     if (password.value.length < 6) {
         answer.innerHTML = 'Your password must be at least 6 characters long'
         return;
     }
 
-    if(number.value.length > 15){
+    if (number.value.length > 15) {
         answer.innerHTML = 'The number is too big'
     }
 
